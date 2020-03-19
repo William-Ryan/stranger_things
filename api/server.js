@@ -9,7 +9,12 @@ const server = express();
 
 server.use(express.json())
 server.use(helmet());
+server.use(cors());
 
-server.get('/')
+// server.use('/api/chars', characterRouter)
+
+server.get('/', (req, res) => {
+    res.send(`<h1>It's working!</h1>`)
+})
 
 module.exports = server
